@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class FizzBuzzTest {
 
@@ -43,5 +44,10 @@ public class FizzBuzzTest {
     void shouldReturnFizzBuzzIfDivideBy3And5() {
         String result = fizzBuzz.say(15);
         assertEquals("FizzBuzz", result);
+    }
+
+    @Test
+    void shouldThrowExceptionIfInputIsLessThanOne() {
+        assertThrows(IllegalArgumentException.class,  () -> fizzBuzz.say(0));
     }
 }

@@ -6,6 +6,9 @@ import java.util.List;
 public class FizzBuzz {
 
     public String say(int s) {
+        if(s == 0) {
+            throw new IllegalArgumentException("Input must grater than 0");
+        }
         if( s%3 == 0 && s%5 == 0) {
             return "FizzBuzz";
         }
