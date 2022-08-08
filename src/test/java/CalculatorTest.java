@@ -2,6 +2,7 @@ import org.example.Calculator;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.OS;
+import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -61,8 +62,18 @@ public class CalculatorTest {
             "3,*,1,3",
             "3,*,2,6"
     })
+    @ParameterizedTest
     void shouldBeCalculateDependOnOperator(int operand1, String operator, int operand2, int result) {
-
+        switch (operator) {
+            case "+":
+                assertEquals(result, calculator.add(operand1, operand2));
+                break;
+            case "-":
+                assertEquals(result, calculator.del(operand1, operand2));
+                break;
+            case "*":
+                assertEquals(result, calculator.multiply(operand1, operand2));
+        }
     }
 
 }
