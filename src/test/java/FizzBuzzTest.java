@@ -38,4 +38,10 @@ public class FizzBuzzTest {
         String result = fizzBuzz.say(5);
         assertEquals("Buzz", result);
     }
+
+    @Test
+    void shouldReturnFizzBuzzIfDivideBy3And5() {
+        String result = fizzBuzz.say(15);
+        assertEquals("FizzBuzz", result);
+    }
 }

@@ -6,8 +6,15 @@ import java.util.List;
 public class FizzBuzz {
 
     public String say(int s) {
+        if( s%3 == 0 && s%5 == 0) {
+            return "FizzBuzz";
+        }
+
         if(s%3 == 0) {
             return "Fizz";
+        }
+        if(s%5 == 0) {
+            return "Buzz";
         }
         return String.valueOf(s);
     }
@@ -18,5 +25,10 @@ public class FizzBuzz {
             result.add(say(i));
         }
         return result;
+    }
+
+    public static void main(String args[]) {
+
+       System.out.println(new FizzBuzz().range(1,15));
     }
 }
