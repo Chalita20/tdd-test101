@@ -32,4 +32,10 @@ public class FizzBuzzTest {
         String result = fizzBuzz.say(3);
         assertEquals("Fizz", result);
     }
+
+    @Test
+    void shouldReturnFuzzIfDivideBy5(){
+        String result = fizzBuzz.say(5);
+        assertEquals("Buzz", result);
+    }
 }
