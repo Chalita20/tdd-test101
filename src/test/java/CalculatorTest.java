@@ -1,5 +1,7 @@
 import org.example.Calculator;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,6 +21,7 @@ public class CalculatorTest {
     }
 
     @Test
+    @EnabledOnOs({OS.MAC})
     void itShouldNotNull(){
         assertNull(calculator2, "Calculator should null");
     }
