@@ -6,6 +6,6 @@ public class AClassWithOneJUnitTest {
 
     @Test
     void demoTestMethod() {
-        assertTrue(false);
+        assertTrue(true);
     }
 }

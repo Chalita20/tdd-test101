@@ -25,4 +25,13 @@ public class CalculatorTest {
         assertEquals(0, calculator.multiply(4, 0),"Regular multiplication should work");
     }
 
+    @Test
+    void testDiv(){
+        assertEquals(2, calculator.div(4,2), "Regular divide");
+    }
+
+    @Test
+    void testDivByZro(){
+        assertEquals(0, calculator.div(4,0), "Regular division by zero");
+    }
 }
