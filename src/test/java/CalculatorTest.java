@@ -1,16 +1,26 @@
 import org.example.Calculator;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorTest {
     Calculator calculator;
+    Calculator calculator2;
+
+    @BeforeAll
+    static void initial() throws Exception {
+        System.out.println("Hello TDD");
+    }
 
     @BeforeEach
     void setUp() throws Exception {
+        System.out.println("=====EACH ====");
         calculator = new Calculator();
+    }
+
+    @Test
+    void itShouldNotNull(){
+        assertNull(calculator2, "Calculator should null");
     }
 
     @Test
@@ -32,7 +42,19 @@ public class CalculatorTest {
     }
 
     @Test
-    void testDivByZro(){
-        assertEquals(0, calculator.div(4,0), "Regular division by zero");
+    void divByZeroShouldThrowException(){
+       Throwable exception = assertThrows(IllegalArgumentException.class, () -> calculator.div(4,0));
+        assertEquals("Division by 0",exception.getMessage());
+        //assertEquals(0, calculator.div(4,0), "Regular division by zero");
+    }
+
+    @AfterEach
+    void doneEachTest() {
+        System.out.println("Done");
+    }
+
+    @AfterAll
+    static void doneAll() {
+        System.out.println("Done all test, Good bye!");
     }
 }

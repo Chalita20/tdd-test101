@@ -7,7 +7,7 @@ public class Calculator {
 
     public int div(int x, int y) {
         if(y==0){
-            return 0;
+            throw new IllegalArgumentException("Division by 0");
         }else {
             return x/y;
         }
