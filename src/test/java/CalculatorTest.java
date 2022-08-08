@@ -76,4 +76,18 @@ public class CalculatorTest {
         }
     }
 
+    @ParameterizedTest
+    @CsvFileSource(resources = "./input.txt")
+    void shouldBeCalculateDependOnOperatorFromFileInput(int operand1, String operator, int operand2, int result) {
+        switch (operator) {
+            case "+":
+                assertEquals(result, calculator.add(operand1, operand2));
+                break;
+            case "-":
+                assertEquals(result, calculator.del(operand1, operand2));
+                break;
+            case "*":
+                assertEquals(result, calculator.multiply(operand1, operand2));
+        }
+    }
 }
