@@ -16,7 +16,8 @@ public class CalculatorTest {
     @Test
     @DisplayName("Simple multiplication should work")
     void testMultiply() {
-        assertEquals(20, calculator.multiply(4, 5),"Regular multiplication should work");
+        int answer = calculator.multiply(4, 5);
+        assertEquals(20, answer,"Regular multiplication should work");
     }
 
     @Test
