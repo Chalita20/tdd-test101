@@ -19,7 +19,6 @@ public class CalculatorTest {
 
     @BeforeEach
     void setUp() throws Exception {
-        System.out.println("=====EACH ====");
         calculator = new Calculator();
     }
 
