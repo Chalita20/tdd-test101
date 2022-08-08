@@ -2,6 +2,7 @@ import org.example.Calculator;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.OS;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -51,13 +52,16 @@ public class CalculatorTest {
         //assertEquals(0, calculator.div(4,0), "Regular division by zero");
     }
 
-    @AfterEach
-    void doneEachTest() {
-        System.out.println("Done");
+    @CsvSource({
+            "1,+,1,2",
+            "2,+,2,4",
+            "1,-,1,0",
+            "2,-,1,1",
+            "3,*,1,3",
+            "3,*,2,6"
+    })
+    void shouldBeCalculateDependOnOperator(int operand1, String operator, int operand2, int result) {
+
     }
 
-    @AfterAll
-    static void doneAll() {
-        System.out.println("Done all test, Good bye!");
-    }
 }
