@@ -108,15 +108,16 @@ public class CalculatorTest {
 
     @Test
     void shouldRandomReturn5() {
-        when(random.nextInt()).thenReturn(5);
-        assertEquals(5, calculator.magicRandom(random));
+        //when(random.nextInt()).thenReturn(5);
+        //assertEquals(5, calculator.magicRandom(random));
+        assertFalse(true);
     }
 
     @Test
     void shouldRandomBeingCalled1Time() {
           Random spyRandom = spy(new Random());
-//          calculator.magicRandom(spyRandom);
-//          verify(spyRandom, atLeast(1)).nextInt();
+          calculator.magicRandom(spyRandom);
+          verify(spyRandom, atLeast(1)).nextInt();
     }
 
     @Test
