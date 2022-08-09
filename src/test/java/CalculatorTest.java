@@ -111,4 +111,12 @@ public class CalculatorTest {
         when(random.nextInt()).thenReturn(5);
         assertEquals(5, calculator.magicRandom(random));
     }
+
+    @Test
+    void shouldRandomBeingCalled1Time() {
+        Random r = new Random();
+        assertFalse(true);
+//        assertEquals(1, calculator.magicRandom(r));
+    }
+
 }
