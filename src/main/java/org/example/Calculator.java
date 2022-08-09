@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Random;
+
 public class Calculator {
     public int multiply(int x, int y){
         return x*y;
@@ -19,5 +21,9 @@ public class Calculator {
 
     public int del(int x, int y) {
         return x-y;
+    }
+
+    public int magicRandom(Random random) {
+        return random.nextInt();
     }
 }

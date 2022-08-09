@@ -2,15 +2,25 @@ import org.example.Calculator;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.OS;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 public class CalculatorTest {
     Calculator calculator;
     Calculator calculator2;
+
+    @Mock
+    Random random;
 
     @BeforeAll
     static void initial() throws Exception {
@@ -88,5 +98,17 @@ public class CalculatorTest {
             case "*":
                 assertEquals(result, calculator.multiply(operand1, operand2));
         }
+    }
+
+    @Test
+    void shouldRandomAnyNumber() {
+        Random r = new Random();
+        assertNotNull(calculator.magicRandom(r));
+    }
+
+    @Test
+    void shouldRandomReturn5() {
+        when(random.nextInt()).thenReturn(5);
+        assertEquals(5, calculator.magicRandom(random));
     }
 }
