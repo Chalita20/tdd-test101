@@ -12,7 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class CalculatorTest {
@@ -29,7 +29,7 @@ public class CalculatorTest {
 
     @BeforeEach
     void setUp() throws Exception {
-        calculator = new Calculator();
+        calculator = spy(new Calculator());
     }
 
     @Test
@@ -114,9 +114,16 @@ public class CalculatorTest {
 
     @Test
     void shouldRandomBeingCalled1Time() {
-        Random r = new Random();
-        assertFalse(true);
-//        assertEquals(1, calculator.magicRandom(r));
+          Random spyRandom = spy(new Random());
+          calculator.magicRandom(spyRandom);
+          verify(spyRandom, atLeast(1)).nextInt();
+    }
+
+    @Test
+    void shouldUseCustomAddWhenMultiply() {
+
+        calculator.multiply(2,2);
+        verify(calculator, atLeastOnce()).add(2,2);
     }
 
 }

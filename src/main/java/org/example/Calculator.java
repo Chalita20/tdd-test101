@@ -4,7 +4,11 @@ import java.util.Random;
 
 public class Calculator {
     public int multiply(int x, int y){
-        return x*y;
+        int sum = 0;
+        for(int i=0; i<y; i++) {
+            sum = add(sum, x);
+        }
+        return sum;
     }
 
     public int div(int x, int y) {
